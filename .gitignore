@@ -1,0 +1,8 @@
+*.o
+a.out
+
+Data-Structures/**/Q*
+!Data-Structures/**/*.c
+!Data-Structures/**/*.pdf
+
+uy_study/**
