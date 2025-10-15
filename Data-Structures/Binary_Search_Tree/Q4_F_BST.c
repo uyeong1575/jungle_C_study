@@ -92,16 +92,53 @@ int main()
 void postOrderIterativeS1(BSTNode *root)
 {
 	/* add your code here */
+	if (root == NULL)
+		return;
 	Stack my_stack = {NULL};
 
 	BSTNode *cur, *tmp;
 	cur = root;
+	push(&(my_stack), root);
 
 	while (1)
 	{
+		cur = peek(&(my_stack)); // cur을 헤드로
 
 		if ((cur == NULL) && (isEmpty(&my_stack)))
 			break;
+
+		if ((cur->left == NULL) && (cur->right == NULL)) // 둘다 null이면 pop1, push2, 출력
+		{
+			tmp = pop(&(my_stack));
+			printf(" %d", tmp->item);
+			continue;
+		}
+		if (cur->right != NULL) // R이 있으면
+		{
+			if (cur->right == tmp) // 이미 R확인 했으면
+			{
+				tmp = pop(&(my_stack));
+				printf(" %d", tmp->item);
+				continue;
+			}
+			else
+			{
+				push(&(my_stack), cur->right);
+			}
+		}
+		if (cur->left != NULL) // L이 있으면
+		{
+			if (cur->left == tmp) // 이미 R확인 했으면
+			{
+				tmp = pop(&(my_stack));
+				printf(" %d", tmp->item);
+				continue;
+			}
+			else
+			{
+				push(&(my_stack), cur->left);
+			}
+		}
 	}
 }
 

@@ -91,9 +91,11 @@ int main()
 void inOrderTraversal(BSTNode *root)
 {
 	/* add your code here */
-	/* 지금 노드 있으면 스택에 넣고 left로 가
-		지금 노드 null이면 stack pop
-		pop한거 print하고 그 값의 right로 들어가
+	/* 지금 노드(cur) 있으면 스택에 넣고 left로 들어감
+
+		지금 노드 없으면(NULL) stack pop,
+		pop한거 print하고 그 값의 right로 들어감
+
 		pop할게 없으면 끝
 	*/
 

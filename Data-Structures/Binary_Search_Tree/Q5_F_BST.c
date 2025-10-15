@@ -92,6 +92,9 @@ int main()
 void postOrderIterativeS2(BSTNode *root)
 {
 	/* add your code here */
+	if (root == NULL)
+		return;
+
 	Stack f_stack = {NULL};
 	Stack s_stack = {NULL};
 
@@ -105,7 +108,6 @@ void postOrderIterativeS2(BSTNode *root)
 
 		if ((cur == NULL) && (isEmpty(&f_stack)))
 			break;
-
 		if ((cur->left == NULL) && (cur->right == NULL)) // 둘다 null이면 pop1, push2, 출력
 		{
 			tmp = pop(&(f_stack));
@@ -113,7 +115,6 @@ void postOrderIterativeS2(BSTNode *root)
 			printf(" %d", tmp->item);
 			continue;
 		}
-
 		if (cur->right != NULL) // R이 있으면
 		{
 			if (cur->right == peek(&(s_stack))) // 이미 R확인 했으면
